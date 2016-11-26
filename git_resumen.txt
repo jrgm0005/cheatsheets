@@ -1,0 +1,193 @@
+- git log -> muestra el log de los últimos cambios realizados
+
+- git log --pretty=online -> versión resumida del log
+
+- git log --pretty=oneline --max-count=2
+
+- git log --pretty=oneline --since='5 minutes ago'
+
+- git log --pretty=oneline --until='5 minutes ago'
+
+- git log --pretty=oneline --author=<your name>
+
+- git log --pretty=oneline --all
+
+- git log --all --pretty=format:'%h %cd %s (%an)' --since='7 days ago'
+
+- git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+
+- git hist
+
+- git checkout <hash> -> Saltar a un estado anterior de commit
+
+- git checkout master -> Saltar al master
+
+- git checkout -b <nombre_del_nuevo_branch> -> Crear un nuevo branch
+
+- git tag v1 -> Crear un tag
+
+- git tag -d v1 -> Borrar el tag v1
+
+- git checkout v1^ -> moverse a la versión padre de v1
+
+- git tag -> listar versiones
+
+- git hist master --all -> Mirar tags en el log
+
+- git checkout master -> Deshace los cambios locales en el directorio de trabajo (estando en el último commit del master)
+
+- git checkout <archivo> -> Deshace los cambios del archivo en particular en estado "not staged"
+
+- git checkout . -> Deshacer los cambios de todos los archivos en estado "not staged"
+
+- git checkout -f -> Deschace los cambios de todos los archivos not stagged al head del branch donde se esté trabajando
+
+- git checkout <checksum_hash> -> To checkout a specific version of the current directory
+
+- git checkout <checksum_hash> <file> -> To checkout a specific version of a file
+
+- git reset HEAD <archivo> -> Deshacer los cambios del archivo ya en estado "staged" (se le ha hecho un add) (lo vuelve a poner a unstaged)
+
+- git reset HEAD -- . -> Deshacer los cambios de todos los archivos ya en estado "staged"
+
+- git revert HEAD --no-edit -> Deshacer el último commit (deja rastro en el historial)
+- git reset --hard <hash> -> Deshacer los commits borrando los rastros en el historial (todavía pueden visualizarse con git hist --all)
+
+- git reset --soft <hash> -> Deshacer los commits pero mantiene los archivos que estuvieran en el working tree y staged, mientras que el hard los destruye.
+
+- Reset de un archivo solamente -> 
+
+# get the version of the file from the given commit
+git checkout <commit> path/to/file
+# and commit this modification
+git commit
+
+
+- git fetch -> git reset --hard origin/<nombre_rama> -> Forzar los cambios de remoto
+
+- git reset --hard HEAD -> abortar un merge
+
+- git commit --amend -m "mensaje" -> Enmendar un commit (añade los cambios sobre el commit anterior borrando el rastro del anterior) (similar a hacer un reset y un nuevo commit)
+
+- git commit -C HEAD --amend -> La opción -C coge los metadatos del commit del HEAD y después con ellos hacemos un amend
+
+- git mv <archivo> path -> mover un archivo (equivale a borrar un archivo y añadirlo otra vez en otra parte)
+
+- git rm <archivo> -> borrar un archivo (añadir para commit un archivo borrado)name
+
+- git rm $(git ls-files --deleted) -> borrar todos los archivos borrados
+
+- git clean -f -> Borrar todos los archivos unstaged
+
+- git clean -f -n -git > Comprobar los archivos que seran borrados
+
+- git clean -df -> borrar archivos y directorios unstaged
+
+- .git/config -> Archivo de configuración que reemplazará al de por defecto (.gitconfig)
+
+- git merge master -> Hacer merge de un branch (permite mantener actualizado el branch con los cambios del master) (usado en branches públicos)
+
+- git rebase master -> Hacer un rebase aplica los cambios del master en el branch primero haciendo los cambios del master parte del historial del branch, haciendo la cadena de commits linear y mucho más fácil de leer. (Usado en local branches)
+
+- git clone <nombre_repositorio> <nombre_repositorio_clonado>
+
+- git remote -> obtener el nombre del repositorio origen (por convenio el repositorio principal centralizado se llama origin)
+
+- git remote show origin -> Lista datos del repositorio origen
+
+- git branch -> lista los branches locales
+
+- git branch -a -> lista todos los branches
+
+- git fetch -> obtiene todos los commits del repositorio remoto pero no hace el merge con el local
+
+- git merge origin/master -> hace un merge de los cambios del fetch realizado previamente
+
+- git pull -> equivale a hacer un fetch y un merge en un solo paso
+
+- git branch --track <nombre_branch_local> origin/<nombre_branch_remoto> -> hacer un branch de un branch remoto
+
+- git checkout -t origin/<nombre_branch_remoto> -> version abreviada del comando anterior
+
+- git clone --bare <nombre_repositorio> <nombre_repositorio.git> -> crear un repositorio desnudo (sin directorios de trabajo) (usado para compartir)
+
+- git remote add shared <nombre_repositorio.git> -> añadir el repositorio bare a nuestro repositorio origen
+
+- git push shared master -> subimos los cambios al repositorio remoto
+
+- git daemon --verbose --export-all --base-path= .-> levantar git como un servicio
+
+- git clone git://localhost/hello.git network_hello -> clonar un repositorio remoto
+
+- git clone git@github.com:whatever folder-name -> clonar en una carpeta concreta
+
+- git reflog -> mostrar todos los cambios (hasta los borrados con hard resets)
+
+- git diff-tree --no-commit-id --name-only -r <hash> -> mostrar los nombres de los ficheros del último commit (el del hash pasado)
+
+- git show branch:file -> Mostrar archivo de un branch sin hacer checkout
+
+- git status -u no -> Ignora todos los ficheros untrackeados presentes
+
+- git add -u -> stagear sólo los archivos mofificados
+
+- git commit -a -> hacer commit sólo de los archivos modificados
+
+- git branch -d <nombre_rama> -> borrar una rama local
+
+- git difftool -t meld -> mostrar los cambios hechos de los archivos en working con meld
+
+- git checkout -- . -> Desahacer todos los cambios unstaged
+
+- git rebase -i -> Modificar historial de commits locales antes de hacer push
+
+- git mergetool -t meld -> Usar meld para resolver conflictos
+
+- git log -m --name-only -> Ver los archivos afectados por el último merge
+
+- git pull {repo} {remotebranchname}:{localbranchname} -> git pull de un branch a otro branch
+
+- git blame file | sort -b -k 3 -> blame ordenado por fecha
+
+- git diff --name-only --diff-filter=U -> Listar archivos en conflicto
+
+- git diff --stat origin/<branch_name> -> Listar los archivos a ser pusheados
+
+- git clone -b my-branchgit@github.com:user/myproject.git -> clonar un branch directamente
+
+- git branch -m <oldname> <newname> -> renombrar una rama
+- git branch -m <newname> -> renombrar rama actual
+
+- git push origin —delete <branchname> -> Borrar un branch en remoto
+
+- git push origin :<branchname> -> Otra forma de borrar un branch en remoto
+
+- git push origin :<branchname> -> Otra sintáxis para borrar un branch en remoto
+
+- git reset <file> ->   Borrar un archivo ya stagged
+
+- git branch -m <newname> -> Renombrar o mover un branch
+
+- git branch -m feature-2 feature/feature2 -> Renombrar o mover un branch
+
+- git branch -vv -> Ver correspondencia de ramas locales y remotas
+
+- git branch —track master origin/master -> Enlazar rama local a remota
+
+- git rebase -i <hash> -> hacer un rebase interactivo en local cuando no tiene un track sobre remoto
+
+- git pull --tags -> cargar todos los tags desde remoto
+
+- git branch -a -> mostrar ramas locales y remotas
+
+- git fetch -p origin -> actualiza y elimina las referencias remotas en caso de que ya no existan
+
+- git branch -f <branchname> <commitref> -> solucionar una rama detached (luego hacer un checkout para moverte a la rama)
+
+- git cherry-pick <hash> -> aplicar un commit de cualquier otra rama a mi rama actual
+
+- git checkout --theirs /path/to/file -> quedarse con la versión remota de un archivo al resolver un conflicto durante un merge (al finalizar hay que realizar un git add)
+
+- git checkout --ours /path/to/file -> quedarse con la versión local de un archivo al resolver un conflicto durante un merge
+
+
