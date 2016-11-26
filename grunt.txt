@@ -1,0 +1,8 @@
+Steps to install grunt on windows.
+
+1- Launch git-bash as administrator.
+2- Start VirtualBox as administrator.
+3- Configure vagrant file as http://blog.bastien-donjon.fr/install-use-grunt-vagrant-windows/
+4- Edit config.yaml as install notes.
+5- follow rules till command "grunt serve"
+6- Before that, follow steps from >> http://blog.bastien-donjon.fr/install-use-grunt-vagrant-windows/
