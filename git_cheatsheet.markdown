@@ -88,34 +88,24 @@ Si da errores, fijarse en que esté el ssh-agent activo para que la detecte y en
         
 0. Upload the current branch
 
-    ````
-    git push origin branch
-    alias: gpush        
-    ````
-    
+        git push origin branch
+        alias: gpush
+        
 0. Add files to a commit (New and modified files)
 
-    ````
-    git add .
-    ````
+        git add .
 
 0. Commit with new files
 
-    ````
-    git commit -m "Commit message"
-    alias: gcmsg
-    ````
-
+        git commit -m "Commit message"
+        alias: gcmsg
+        
 0. Upload branch with files merged
-
     ````
     git rebase #branch
     git rebase develop
     alias: grd
     ````
-    
 0. Download remote branch
-    
-    ````
-    git branch --track <nombre_branch_local> origin/<nombre_branch_remote> 
-    ````
+
+        git branch --track <nombre_branch_local> origin/<nombre_branch_remote> 
